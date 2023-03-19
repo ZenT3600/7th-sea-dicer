@@ -71,13 +71,13 @@ public class DicerViewModel extends ViewModel {
         dicerLiveData.postValue(dices);
     }
 
-    public void rollDice() {
+    public void rollDice(boolean sum15) {
         int[] roll = dicer.rollDice(diceNumber, faceNumber);
         dicerLiveData.postValue(roll);
-        calculateSuccess(roll);
+        calculateSuccess(roll, sum15);
     }
 
-    public void calculateSuccess(int[] roll) {
-        successLiveData.postValue(dicer.findSuccess(roll, difficultyNumber));
+    public void calculateSuccess(int[] roll, boolean sum15) {
+        successLiveData.postValue(dicer.findSuccess(roll, difficultyNumber, sum15));
     }
 }

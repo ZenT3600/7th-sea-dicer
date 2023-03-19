@@ -104,10 +104,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+
         dicerViewModel.getSuccessLiveData().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 contentMainBinding.successTextView.setText(s);
+                if (!s.isEmpty()) contentMainBinding.successTitle.setText("Success: " + countLines(s));
+                else contentMainBinding.successTitle.setText("Success: 0");
             }
         });
     }
@@ -207,8 +210,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void rollDice() {
         applySettings();
-        dicerViewModel.rollDice();
-        Toast.makeText(this, "Long press a dice to reroll...", Toast.LENGTH_LONG).show();
+        dicerViewModel.rollDice(contentMainBinding.sum15checkbox.isChecked());
+        Toast.makeText(this, "Long press a dice to reroll...", Toast.LENGTH_SHORT).show();
+    }
+
+    private static int countLines(String str){
+        String[] lines = str.split("\r\n|\r|\n");
+        int length = lines.length;
+        for (String l : lines) {
+            if (l.contains("(DOUBLE)")) length++;
+        }
+        return length;
     }
 
     private void hookDiceRerolling(final ImageView dice, final int n) {
@@ -216,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public boolean onLongClick(View v) {
                 dicerViewModel.rerollDice(n);
                 flashResult(dice);
-                dicerViewModel.calculateSuccess(dicerViewModel.getDicerLiveData().getValue());
+                dicerViewModel.calculateSuccess(dicerViewModel.getDicerLiveData().getValue(), contentMainBinding.sum15checkbox.isChecked());
                 return false;
             }
         });
