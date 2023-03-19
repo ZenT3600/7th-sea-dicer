@@ -46,6 +46,7 @@ public class Dicer {
             if (Integer.parseInt(d) >= 10) {
                 dSuccess2.add("[" + d + "] >= " + difficultyNumber);
                 roll2.remove(i);
+                i--;
             }
         }
         for (int i = 0; i < roll2.size(); i++) {
@@ -80,6 +81,7 @@ public class Dicer {
             if (Integer.parseInt(d) >= difficultyNumber) {
                 dSuccess3.add("[" + d + "] >= " + difficultyNumber);
                 roll3.remove(i);
+                i--;
             }
         }
         boolean tobreak = false;
