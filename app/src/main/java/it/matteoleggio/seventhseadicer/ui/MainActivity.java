@@ -19,6 +19,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -36,6 +37,8 @@ import it.matteoleggio.seventhseadicer.databinding.ContentMainBinding;
 import it.matteoleggio.seventhseadicer.sensors.ShakeListener;
 
 import java.util.Locale;
+
+import javax.xml.datatype.Duration;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -205,6 +208,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void rollDice() {
         applySettings();
         dicerViewModel.rollDice();
+        Toast.makeText(this, "Long press a dice to reroll...", Toast.LENGTH_LONG).show();
+    }
+
+    private void hookDiceRerolling(final ImageView dice, final int n) {
+        dice.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                dicerViewModel.rerollDice(n);
+                flashResult(dice);
+                dicerViewModel.calculateSuccess(dicerViewModel.getDicerLiveData().getValue());
+                return false;
+            }
+        });
     }
 
     private void showDice(int[] dice) {
@@ -215,7 +230,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             } else {
                 imageViews[i].setImageBitmap(createBitmapForNumber(dice[i]));
             }
-            flashResult(imageViews[i]);
+            hookDiceRerolling(imageViews[i], i);
         }
     }
 
@@ -245,7 +260,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Bitmap result = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(result);
-        canvas.drawColor(ContextCompat.getColor(this, R.color.colorAccent));
+        canvas.drawColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
         Paint p = new Paint();
         float textSize = width * 2.5f / 4.0f;

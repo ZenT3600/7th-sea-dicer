@@ -64,9 +64,20 @@ public class DicerViewModel extends ViewModel {
         difficultyNumberLiveData.postValue(faceNumber);
     }
 
+    public void rerollDice(int diceN) {
+        int[] roll = dicer.rollDice(1, faceNumber);
+        int[] dices = getDicerLiveData().getValue();
+        dices[diceN] = roll[0];
+        dicerLiveData.postValue(dices);
+    }
+
     public void rollDice() {
         int[] roll = dicer.rollDice(diceNumber, faceNumber);
         dicerLiveData.postValue(roll);
+        calculateSuccess(roll);
+    }
+
+    public void calculateSuccess(int[] roll) {
         successLiveData.postValue(dicer.findSuccess(roll, difficultyNumber));
     }
 }
