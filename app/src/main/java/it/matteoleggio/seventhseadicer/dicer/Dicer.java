@@ -61,9 +61,9 @@ public class Dicer {
                             dSuccess2.add("[" + d1 + ", " + d2 + "] >= 15 (DOUBLE)");
                         } else {
                             dSuccess2.add("[" + d1 + ", " + d2 + "] >= " + difficultyNumber);
-                            roll2.set(i, "-9999");
-                            roll2.set(j, "-9999");
                         }
+                        roll2.set(i, "-9999");
+                        roll2.set(j, "-9999");
                         break;
                     }
                 }
@@ -101,13 +101,13 @@ public class Dicer {
                         int d3 = Integer.parseInt(roll3.get(l));
                         if (d1 + d2 + d3 >= difficultyNumber) {
                             if (sum15 && (d1 + d2 + d3 >= 15)) {
-                                dSuccess2.add("[" + d1 + ", " + d2 + ", " + d3 + "] >= 15 (DOUBLE)");
+                                dSuccess3.add("[" + d1 + ", " + d2 + ", " + d3 + "] >= 15 (DOUBLE)");
                             } else {
                                 dSuccess3.add("[" + d1 + ", " + d2 + ", " + d3 + "] >= " + difficultyNumber);
-                                roll3.set(i, "-9999");
-                                roll3.set(j, "-9999");
-                                roll3.set(l, "-9999");
                             }
+                            roll3.set(i, "-9999");
+                            roll3.set(j, "-9999");
+                            roll3.set(l, "-9999");
                             tobreak = true;
                             break;
                         }
