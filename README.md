@@ -7,7 +7,9 @@ Privacy Friendly Dicer uses SecureRandom [http://docs.oracle.com/javase/7/docs/a
 
 ### Fork Additions
 
-- Automatic success calculator based on difficulty c
+- Automatic success calculator based on difficulty cap
+- Ability to reroll single dice
+- Possibility to count sum of 15 as a double success
 
 ## Contributors
 
