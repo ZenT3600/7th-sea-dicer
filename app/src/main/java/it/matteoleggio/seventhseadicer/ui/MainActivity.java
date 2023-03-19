@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlydicer.ui;
+package it.matteoleggio.seventhseadicer.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -30,10 +30,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.navigation.NavigationView;
 
-import org.secuso.privacyfriendlydicer.R;
-import org.secuso.privacyfriendlydicer.databinding.ActivityMainBinding;
-import org.secuso.privacyfriendlydicer.databinding.ContentMainBinding;
-import org.secuso.privacyfriendlydicer.sensors.ShakeListener;
+import it.matteoleggio.seventhseadicer.R;
+import it.matteoleggio.seventhseadicer.databinding.ActivityMainBinding;
+import it.matteoleggio.seventhseadicer.databinding.ContentMainBinding;
+import it.matteoleggio.seventhseadicer.sensors.ShakeListener;
 
 import java.util.Locale;
 
@@ -93,6 +93,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 contentMainBinding.chooseFaceNumber.setText(String.format(Locale.ENGLISH, "%d", number));
             }
         });
+
+        dicerViewModel.getDifficultyNumberLiveData().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer number) {
+                contentMainBinding.chooseDifficultyNumber.setText(String.format(Locale.ENGLISH, "%d", number));
+            }
+        });
+
+        dicerViewModel.getSuccessLiveData().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                contentMainBinding.successTextView.setText(s);
+            }
+        });
     }
 
     private void initResources() {
@@ -119,6 +133,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         contentMainBinding.seekBarFace.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 dicerViewModel.setFaceNumber(progress + 1);
+            }
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
+        contentMainBinding.seekBarDifficulty.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                dicerViewModel.setDifficultyNumber(progress + 1);
             }
             public void onStartTrackingTouch(SeekBar seekBar) {
             }

@@ -2,264 +2,327 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/content_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.secuso.privacyfriendlydicer.ui.MainActivity"
-    tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:id="@+id/chooseDiceHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/choose_dice_heading"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/chooseDiceNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5"
-        android:layout_marginStart="8dp"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/chooseDiceHeading"
-        app:layout_constraintStart_toEndOf="@id/chooseDiceHeading"
-        android:layout_marginLeft="8dp" />
-
-    <SeekBar
-        android:id="@+id/seekBar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/chooseDiceHeading"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="10dp"
-        android:max="9"
-        android:progress="4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chooseDiceHeading" />
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="it.matteoleggio.seventhseadicer.ui.MainActivity"
+        tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:id="@+id/chooseFacesHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/choose_face_heading"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/seekBar" />
+        <TextView
+            android:id="@+id/chooseDiceHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_dice_heading"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/chooseFaceNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="6"
-        android:layout_marginStart="8dp"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/chooseFacesHeading"
-        app:layout_constraintStart_toEndOf="@id/chooseFacesHeading"
-        android:layout_marginLeft="8dp" />
+        <TextView
+            android:id="@+id/chooseDiceNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="5"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/chooseDiceHeading"
+            app:layout_constraintStart_toEndOf="@id/chooseDiceHeading" />
 
-    <SeekBar
-        android:id="@+id/seekBarFace"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/chooseFacesHeading"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="16dp"
-        android:max="19"
-        android:progress="5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chooseFaceNumber" />
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chooseDiceHeading"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dp"
+            android:max="9"
+            android:progress="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chooseDiceHeading" />
 
-    <Button
-        android:id="@+id/rollButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/button_fullwidth"
-        android:text="@string/roll_button"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/seekBarFace" />
+        <TextView
+            android:id="@+id/chooseFacesHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/choose_face_heading"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seekBar" />
 
-    <TextView
-        android:id="@+id/sumTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rollButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/main_dice_sum"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rollButton" />
+        <TextView
+            android:id="@+id/chooseFaceNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="6"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/chooseFacesHeading"
+            app:layout_constraintStart_toEndOf="@id/chooseFacesHeading" />
 
-    <ImageView
-        android:id="@+id/resultOne"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_below="@+id/rollButton"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="4dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/resultTwo"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sumTextView"
-        app:srcCompat="@drawable/d1" />
+        <SeekBar
+            android:id="@+id/seekBarFace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chooseFacesHeading"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:max="19"
+            android:progress="5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chooseFaceNumber" />
 
-    <ImageView
-        android:id="@+id/resultTwo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_below="@+id/rollButton"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="4dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/resultThree"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/resultOne"
-        app:layout_constraintTop_toBottomOf="@id/sumTextView"
-        app:srcCompat="@drawable/d1" />
+        <TextView
+            android:id="@+id/chooseDifficultyHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/choose_difficulty_heading"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarFace" />
 
-    <ImageView
-        android:id="@+id/resultThree"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_below="@+id/rollButton"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="4dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/resultFour"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/resultTwo"
-        app:layout_constraintTop_toBottomOf="@id/sumTextView"
-        app:srcCompat="@drawable/d1" />
+        <TextView
+            android:id="@+id/chooseDifficultyNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="10"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/chooseDifficultyHeading"
+            app:layout_constraintStart_toEndOf="@id/chooseDifficultyHeading" />
 
-    <ImageView
-        android:id="@+id/resultFour"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_below="@+id/rollButton"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="4dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/resultFive"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/resultThree"
-        app:layout_constraintTop_toBottomOf="@id/sumTextView"
-        app:srcCompat="@drawable/d1" />
+        <SeekBar
+            android:id="@+id/seekBarDifficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chooseFacesHeading"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:max="19"
+            android:progress="10"
+            app:layout_constraintTop_toBottomOf="@+id/chooseDifficultyNumber"
+            tools:layout_editor_absoluteX="16dp" />
 
-    <ImageView
-        android:id="@+id/resultFive"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_below="@+id/rollButton"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="4dp"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/resultFour"
-        app:layout_constraintTop_toBottomOf="@id/sumTextView"
-        app:srcCompat="@drawable/d1" />
+        <Button
+            android:id="@+id/rollButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_fullwidth"
+            android:text="@string/roll_button"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.343"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarDifficulty" />
 
-    <ImageView
-        android:id="@+id/resultSix"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="4dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/resultSeven"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/resultOne"
-        app:srcCompat="@drawable/d1" />
+        <TextView
+            android:id="@+id/sumTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rollButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/main_dice_sum"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rollButton" />
 
-    <ImageView
-        android:id="@+id/resultSeven"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="4dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/resultEight"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/resultSix"
-        app:layout_constraintTop_toBottomOf="@id/resultOne"
-        app:srcCompat="@drawable/d1" />
+        <ImageView
+            android:id="@+id/resultOne"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/resultTwo"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sumTextView"
+            app:srcCompat="@drawable/d1" />
 
-    <ImageView
-        android:id="@+id/resultEight"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="4dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/resultNine"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/resultSeven"
-        app:layout_constraintTop_toBottomOf="@id/resultOne"
-        app:srcCompat="@drawable/d1" />
+        <ImageView
+            android:id="@+id/resultTwo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/resultThree"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/resultOne"
+            app:layout_constraintTop_toBottomOf="@id/sumTextView"
+            app:srcCompat="@drawable/d1" />
 
-    <ImageView
-        android:id="@+id/resultNine"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="4dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/resultTen"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/resultEight"
-        app:layout_constraintTop_toBottomOf="@id/resultOne"
-        app:srcCompat="@drawable/d1" />
+        <ImageView
+            android:id="@+id/resultThree"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/resultFour"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/resultTwo"
+            app:layout_constraintTop_toBottomOf="@id/sumTextView"
+            app:srcCompat="@drawable/d1" />
 
-    <ImageView
-        android:id="@+id/resultTen"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="4dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/resultNine"
-        app:layout_constraintTop_toBottomOf="@id/resultOne"
-        app:srcCompat="@drawable/d1" />
+        <ImageView
+            android:id="@+id/resultFour"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/resultFive"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/resultThree"
+            app:layout_constraintTop_toBottomOf="@id/sumTextView"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/resultFive"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:scaleType="fitXY"
+            android:visibility="visible"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/resultFour"
+            app:layout_constraintTop_toBottomOf="@id/sumTextView"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/resultSix"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/resultSeven"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/resultOne"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/resultSeven"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/resultEight"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/resultSix"
+            app:layout_constraintTop_toBottomOf="@id/resultOne"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/resultEight"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/resultNine"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/resultSeven"
+            app:layout_constraintTop_toBottomOf="@id/resultOne"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/resultNine"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/resultTen"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/resultEight"
+            app:layout_constraintTop_toBottomOf="@id/resultOne"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/resultTen"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/resultNine"
+            app:layout_constraintTop_toBottomOf="@id/resultOne"
+            app:srcCompat="@drawable/d1" />
+
+        <TextView
+            android:id="@+id/successTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rollButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="78dp"
+            android:text="@string/main_success"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/resultEight" />
+
+        <TextView
+            android:id="@+id/successTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rollButton"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/successTitle" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

@@ -1,11 +1,11 @@
-package org.secuso.privacyfriendlydicer.ui;
+package it.matteoleggio.seventhseadicer.ui;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.secuso.privacyfriendlydicer.R;
+import it.matteoleggio.seventhseadicer.R;
 
 /**
  * Created by yonjuni on 15.06.16.

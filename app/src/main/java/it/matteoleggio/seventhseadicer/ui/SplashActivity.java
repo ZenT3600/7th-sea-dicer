@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlydicer.ui;
+package it.matteoleggio.seventhseadicer.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

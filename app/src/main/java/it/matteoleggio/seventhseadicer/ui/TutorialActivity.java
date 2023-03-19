@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlydicer.ui;
+package it.matteoleggio.seventhseadicer.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +20,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.secuso.privacyfriendlydicer.R;
+import it.matteoleggio.seventhseadicer.R;
 
 
 /**

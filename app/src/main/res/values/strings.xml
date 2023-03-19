@@ -1,7 +1,7 @@
 <resources>
 
-    <string name="app_name">Dicer</string>
-    <string name="app_name_long">Privacy Friendly Dicer</string>
+    <string name="app_name">7th Sea Dicer</string>
+    <string name="app_name_long">7th Sea Dicer (a Dicer Fork)</string>
 
     <string name="action_settings">Settings</string>
     <string name="action_about">About</string>
@@ -25,9 +25,9 @@
     <!--About-->
     <string name="about">About</string>
     <string name="version_number">Version v%s</string>
-    <string name="about_author">Author: Karola Marky and contributors.</string>
+    <string name="about_author">Fork Author: ZenT3600 | Original Author: Karola Marky and contributors.</string>
     <string name="about_affiliation">In affiliation with</string>
-    <string name="privacy_friendly">This application belongs to the group of Privacy Friendly Apps developed by Karlsruher Institute for Technology (KIT). Sourcecode licensed under GPLv3. Images copyright KIT and Google Inc.</string>
+    <string name="privacy_friendly">This original application belongs to the group of Privacy Friendly Apps developed by Karlsruher Institute for Technology (KIT). Sourcecode licensed under GPLv3. Images copyright KIT and Google Inc.</string>
     <string name="more_info">More information can be found on:</string>
     <string name="github" translatable="false"><a href="https://github.com/SecUSo/privacy-friendly-dicer">Github-Repo</a></string>
     <string name="url" translatable="false"><a href="https://www.secuso.org/pfa">SECUSO-Website</a></string>
@@ -48,4 +48,6 @@
     <string name="slide1_text">Choose the number of dice of adjusting the slider. Roll the dice by pressing the button or shaking the smartphone.</string>
     <string name="action_tutorial">Tutorial</string>
     <string name="help_button">Help</string>
+    <string name="choose_difficulty_heading">Difficulty Cap</string>
+    <string name="main_success">Success:</string>
 </resources>

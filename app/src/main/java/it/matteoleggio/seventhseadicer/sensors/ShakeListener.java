@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlydicer.sensors;
+package it.matteoleggio.seventhseadicer.sensors;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;

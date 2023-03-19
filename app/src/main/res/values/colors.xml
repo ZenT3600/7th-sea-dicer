@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#024265</color>
-    <color name="colorPrimaryDark">#024265</color>
-    <color name="colorAccent">#0274B2</color>
+    <color name="colorPrimary">#E91E63</color>
+    <color name="colorPrimaryDark">#880E4F</color>
+    <color name="colorAccent">#F06292</color>
     <color name="transparent">#00000000</color>
     <color name="middlegrey">#A8A8A8</color>
     <color name="white">#ffffff</color>
 
-    <color name="ic_launcher_background">#3680BB</color>
+    <color name="ic_launcher_background">#F06292</color>
 
-    <color name="dot_dark_screen">#026499</color>
-    <color name="dot_light_screen">#448bb2</color>
+    <color name="dot_dark_screen">#E91E63</color>
+    <color name="dot_light_screen">#F06292</color>
 
     <array name="array_dot_active">
         <item>@color/dot_light_screen</item>
