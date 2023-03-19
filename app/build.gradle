@@ -7,7 +7,7 @@ android {
         applicationId "it.matteoleggio.seventhseadicer"
         minSdkVersion 24
         targetSdkVersion 33
-        versionCode 10
+        versionCode 11
         versionName "1.7.0"
     }
 
