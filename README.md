@@ -7,12 +7,7 @@ Privacy Friendly Dicer uses SecureRandom [http://docs.oracle.com/javase/7/docs/a
 
 ### Fork Additions
 
-- Automatic success calculator based on difficulty cap
-
-### API Reference
-
-Mininum SDK: 16
-Target SDK: 25 
+- Automatic success calculator based on difficulty c
 
 ## Contributors
 
