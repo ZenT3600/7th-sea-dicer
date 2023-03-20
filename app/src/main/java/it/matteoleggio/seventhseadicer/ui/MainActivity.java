@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ImageView[] pairViews;
     private boolean shakingEnabled;
     private boolean vibrationEnabled;
+    private boolean oldViewEnabled;
     private SharedPreferences sharedPreferences;
 
     // for Shaking
@@ -122,25 +123,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onChanged(ArrayList<ArrayList<Integer>> s) {
+                int c = 0;
+                StringBuilder sb = new StringBuilder();
+                c = 0;
                 for (int i = 0; i < s.size(); i++) {
-                    setPairView(s.get(i), i);
-                }
-                if (contentMainBinding.sum15checkbox.isChecked()) {
-                    int c = 0;
-                    for (int i = 0; i < s.size(); i++) {
-                        int subc = 0;
-                        for (int j = 0; j < s.get(i).size(); j++) {
-                            subc += s.get(i).get(j);
-                        }
-                        if (subc >= 15) {
-                            c += 2;
-                        } else {
-                            c++;
-                        }
+                    sb.append("[ ");
+                    int subc = 0;
+                    for (int j = 0; j < s.get(i).size(); j++) {
+                        subc += s.get(i).get(j);
+                        sb.append(s.get(i).get(j).toString() + " ");
                     }
-                    contentMainBinding.successTitle.setText("Success: " + c);
+                    sb.append("]");
+                    if (subc >= 15 && contentMainBinding.sum15checkbox.isChecked()) {
+                        sb.append(" >= 15 (DOUBLE)");
+                        c += 2;
+                    } else {
+                        sb.append(" >= " + dicerViewModel.getDifficultyNumber());
+                        c++;
+                    }
+                    sb.append("\n");
+                }
+                if (oldViewEnabled) {
+                    if (contentMainBinding.sum15checkbox.isChecked()) {
+                        contentMainBinding.successTitle.setText("Success: " + c);
+                    } else {
+                        contentMainBinding.successTitle.setText("Success: " + s.size());
+                    }
+                    contentMainBinding.successText.setText(sb.toString());
                 } else {
-                    contentMainBinding.successTitle.setText("Success: " + s.size());
+                    for (int i = 0; i < s.size(); i++) {
+                        setPairView(s.get(i), i);
+                    }
+                    if (contentMainBinding.sum15checkbox.isChecked()) {
+                        contentMainBinding.successTitle.setText("Success: " + c);
+                    } else {
+                        contentMainBinding.successTitle.setText("Success: " + s.size());
+                    }
                 }
             }
         });
@@ -358,6 +376,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void applySettings() {
         shakingEnabled = sharedPreferences.getBoolean("enable_shaking", true);
         vibrationEnabled = sharedPreferences.getBoolean("enable_vibration", true);
+        oldViewEnabled = sharedPreferences.getBoolean("enable_old_view", false);
+        if (!oldViewEnabled) contentMainBinding.successText.setText("");
+        else {
+            for (ImageView imageView : pairViews) {
+                imageView.setImageResource(0);
+            }
+        }
     }
 
     @Override

@@ -11,4 +11,11 @@
             android:key="enable_vibration"
             android:title="@string/vibration_title"
             android:defaultValue="true" />
+        <SwitchPreference
+            android:id="@+id/enableOldView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="false"
+            android:key="enable_old_view"
+            android:title="@string/old_view_title" />
 </PreferenceScreen>

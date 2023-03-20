@@ -51,4 +51,5 @@
     <string name="help_button">Help</string>
     <string name="choose_difficulty_heading">Difficulty Cap</string>
     <string name="main_success">Success:</string>
+    <string name="old_view_title">Switch to Old Success View</string>
 </resources>

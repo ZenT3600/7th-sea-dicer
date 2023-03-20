@@ -324,12 +324,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/rollButton"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="76dp"
             android:text="@string/main_success"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/resultEight" />
 
@@ -662,6 +662,15 @@
             app:layout_constraintStart_toEndOf="@+id/pairTen1"
             app:layout_constraintTop_toBottomOf="@+id/resultSix"
             app:srcCompat="@drawable/d1" />
+
+        <TextView
+            android:id="@+id/successText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/successTitle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
