@@ -40,11 +40,13 @@ public class Dicer {
             roll2.add(Integer.toString(r));
         }
         ArrayList<String> dSuccess2 = new ArrayList<String>();
+	int cSuccess2 = 0;
         // Check for single 10s
         for (int i = 0; i < roll2.size(); i++) {
             String d = roll2.get(i);
-            if (Integer.parseInt(d) == 10) {
-                dSuccess2.add("[10] == 10");
+            if (Integer.parseInt(d) >= 10) {
+                dSuccess2.add("[" + d + "] >= 10");
+		cSuccess2++;
                 roll2.remove(i);
                 i--;
             }
@@ -59,8 +61,11 @@ public class Dicer {
                     if (d1 + d2 >= difficultyNumber) {
                         if (sum15 && (d1 + d2 >= 15)) {
                             dSuccess2.add("[" + d1 + ", " + d2 + "] >= 15 (DOUBLE)");
+			    cSuccess2++;
+			    cSuccess2++;
                         } else {
                             dSuccess2.add("[" + d1 + ", " + d2 + "] >= " + difficultyNumber);
+			    cSuccess2++;
                         }
                         roll2.set(i, "-9999");
                         roll2.set(j, "-9999");
@@ -79,11 +84,13 @@ public class Dicer {
             roll3.add(Integer.toString(r));
         }
         ArrayList<String> dSuccess3 = new ArrayList<String>();
+	int cSuccess3 = 0;
         // Check for single 10s
         for (int i = 0; i < roll3.size(); i++) {
             String d = roll3.get(i);
-            if (Integer.parseInt(d) == 10) {
-                dSuccess3.add("[10] == 10");
+            if (Integer.parseInt(d) >= 10) {
+                dSuccess3.add("[" + d + "] >= 10");
+		cSuccess3++;
                 roll3.remove(i);
                 i--;
             }
@@ -102,8 +109,11 @@ public class Dicer {
                         if (d1 + d2 + d3 >= difficultyNumber) {
                             if (sum15 && (d1 + d2 + d3 >= 15)) {
                                 dSuccess3.add("[" + d1 + ", " + d2 + ", " + d3 + "] >= 15 (DOUBLE)");
+				cSuccess3++;
+				cSuccess3++;
                             } else {
                                 dSuccess3.add("[" + d1 + ", " + d2 + ", " + d3 + "] >= " + difficultyNumber);
+				cSuccess3++;
                             }
                             roll3.set(i, "-9999");
                             roll3.set(j, "-9999");
@@ -120,10 +130,10 @@ public class Dicer {
         }
         System.out.println();
 
-        if (dSuccess2.size() == 0 && dSuccess3.size() == 0) {
+        if (cSuccess2 == 0 && cSuccess3 == 0) {
             return "";
         }
-        if (dSuccess2.size() >= dSuccess3.size()) {
+        if (cSuccess2 >= cSuccess3) {
             return join("\n", dSuccess2);
         } else {
             return join("\n", dSuccess3);
