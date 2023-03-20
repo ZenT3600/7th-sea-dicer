@@ -44,8 +44,8 @@ public class Dicer {
         // Check for single 10s
         for (int i = 0; i < roll2.size(); i++) {
             String d = roll2.get(i);
-            if (Integer.parseInt(d) >= 10) {
-                dSuccess2.add("[" + d + "] >= 10");
+            if (Integer.parseInt(d) == 10) {
+                dSuccess2.add("[" + d + "] == 10");
 		cSuccess2++;
                 roll2.remove(i);
                 i--;
@@ -88,8 +88,8 @@ public class Dicer {
         // Check for single 10s
         for (int i = 0; i < roll3.size(); i++) {
             String d = roll3.get(i);
-            if (Integer.parseInt(d) >= 10) {
-                dSuccess3.add("[" + d + "] >= 10");
+            if (Integer.parseInt(d) == 10) {
+                dSuccess3.add("[" + d + "] == 10");
 		cSuccess3++;
                 roll3.remove(i);
                 i--;
