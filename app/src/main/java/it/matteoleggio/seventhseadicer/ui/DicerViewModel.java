@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
+
 import it.matteoleggio.seventhseadicer.dicer.Dicer;
 
 public class DicerViewModel extends ViewModel {
@@ -14,7 +16,7 @@ public class DicerViewModel extends ViewModel {
     private int difficultyNumber = 10;
 
     private final MutableLiveData<int[]> dicerLiveData = new MutableLiveData<>();
-    private final MutableLiveData<String> successLiveData = new MutableLiveData<>();
+    private final MutableLiveData<ArrayList<ArrayList<Integer>>> successLiveData = new MutableLiveData<>();
     private final MutableLiveData<Integer> diceNumberLiveData = new MutableLiveData<>();
     private final MutableLiveData<Integer> faceNumberLiveData = new MutableLiveData<>();
     private final MutableLiveData<Integer> difficultyNumberLiveData = new MutableLiveData<>();
@@ -35,7 +37,7 @@ public class DicerViewModel extends ViewModel {
     public LiveData<Integer> getDifficultyNumberLiveData() {
         return difficultyNumberLiveData;
     }
-    public LiveData<String> getSuccessLiveData() {
+    public LiveData<ArrayList<ArrayList<Integer>>> getSuccessLiveData() {
         return successLiveData;
     }
 

@@ -124,7 +124,7 @@
             app:layout_constraintTop_toBottomOf="@+id/chooseDifficultyHeading" />
 
         <TextView
-            android:id="@+id/chooseDifficultyHeading2"
+            android:id="@+id/sum15heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -143,7 +143,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chooseDifficultyHeading2" />
+            app:layout_constraintTop_toBottomOf="@+id/sum15heading" />
 
         <Button
             android:id="@+id/rollButton"
@@ -241,7 +241,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="4dp"
             android:scaleType="fitXY"
-            android:visibility="visible"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -325,7 +324,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/rollButton"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="78dp"
+            android:layout_marginTop="100dp"
             android:text="@string/main_success"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -334,16 +333,335 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/resultEight" />
 
-        <TextView
-            android:id="@+id/successTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/rollButton"
-            android:layout_centerHorizontal="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+        <ImageView
+            android:id="@+id/pairOne1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/successTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairOne2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginTop="96dp"
+            app:layout_constraintStart_toEndOf="@+id/pairOne1"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairOne3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="24dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pairOne1"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairTwo1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairOne2"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairTwo3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairOne2"
+            app:layout_constraintTop_toBottomOf="@+id/pairTwo1"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairTwo2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginTop="96dp"
+            app:layout_constraintStart_toEndOf="@+id/pairTwo1"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairThree1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairTwo2"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairThree2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginTop="96dp"
+            app:layout_constraintStart_toEndOf="@+id/pairThree1"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairThree3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairTwo2"
+            app:layout_constraintTop_toBottomOf="@+id/pairThree1"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairFour1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairThree2"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairFour2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginTop="96dp"
+            app:layout_constraintStart_toEndOf="@+id/pairFour1"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairFour3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairThree2"
+            app:layout_constraintTop_toBottomOf="@+id/pairFour1"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairFive1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairFour2"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairFive3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairFour2"
+            app:layout_constraintTop_toBottomOf="@+id/pairFive1"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairFive2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginTop="96dp"
+            app:layout_constraintStart_toEndOf="@+id/pairFive1"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairSix1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="156dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairSix2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginTop="172dp"
+            app:layout_constraintStart_toEndOf="@+id/pairSix1"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairSix3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="24dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pairSix1"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairSeven1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="156dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairSix2"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairSeven2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairSix2"
+            app:layout_constraintTop_toBottomOf="@+id/pairSeven1"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairSeven3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginTop="172dp"
+            app:layout_constraintStart_toEndOf="@+id/pairSeven1"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairEight1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="156dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairSeven3"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairEight2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairSeven3"
+            app:layout_constraintTop_toBottomOf="@+id/pairEight1"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairEight3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginTop="172dp"
+            app:layout_constraintStart_toEndOf="@+id/pairEight1"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairNine1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="156dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairEight3"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairNine2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginTop="172dp"
+            app:layout_constraintStart_toEndOf="@+id/pairNine1"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairNine3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairEight3"
+            app:layout_constraintTop_toBottomOf="@+id/pairNine1"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairTen1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="156dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairNine2"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairTen2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginStart="2dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/pairNine2"
+            app:layout_constraintTop_toBottomOf="@+id/pairTen1"
+            app:srcCompat="@drawable/d1" />
+
+        <ImageView
+            android:id="@+id/pairTen3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/rollButton"
+            android:layout_marginTop="172dp"
+            app:layout_constraintStart_toEndOf="@+id/pairTen1"
+            app:layout_constraintTop_toBottomOf="@+id/resultSix"
+            app:srcCompat="@drawable/d1" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

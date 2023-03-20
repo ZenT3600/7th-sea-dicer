@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -36,6 +37,8 @@ import it.matteoleggio.seventhseadicer.databinding.ActivityMainBinding;
 import it.matteoleggio.seventhseadicer.databinding.ContentMainBinding;
 import it.matteoleggio.seventhseadicer.sensors.ShakeListener;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
 import javax.xml.datatype.Duration;
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ContentMainBinding contentMainBinding;
 
     private ImageView[] imageViews;
+    private ImageView[] pairViews;
     private boolean shakingEnabled;
     private boolean vibrationEnabled;
     private SharedPreferences sharedPreferences;
@@ -105,18 +109,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-        dicerViewModel.getSuccessLiveData().observe(this, new Observer<String>() {
+        dicerViewModel.getSuccessLiveData().observe(this, new Observer<ArrayList<ArrayList<Integer>>>() {
+            public void setPairView(ArrayList<Integer> pair, int offset) {
+                for (int i = 0; i < pair.size(); i++) {
+                    if (dicerViewModel.getFaceNumber() <= 6) {
+                        pairViews[offset * 3 + i].setImageResource(getDicerDrawable(pair.get(i)));
+                    } else {
+                        pairViews[offset * 3 + i].setImageBitmap(createBitmapForNumber(pair.get(i)));
+                    }
+                }
+            }
+
             @Override
-            public void onChanged(String s) {
-                contentMainBinding.successTextView.setText(s);
-                if (!s.isEmpty()) contentMainBinding.successTitle.setText("Success: " + countLines(s));
-                else contentMainBinding.successTitle.setText("Success: 0");
+            public void onChanged(ArrayList<ArrayList<Integer>> s) {
+                for (int i = 0; i < s.size(); i++) {
+                    setPairView(s.get(i), i);
+                }
+                contentMainBinding.successTitle.setText("Success: " + s.size());
             }
         });
     }
 
     private void initResources() {
         initResultDiceViews();
+        initPairDiceViews();
 
         setSupportActionBar(binding.toolbar);
 
@@ -198,12 +214,50 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         imageViews[7] = contentMainBinding.resultEight;
         imageViews[8] = contentMainBinding.resultNine;
         imageViews[9] = contentMainBinding.resultTen;
+    }
+
+    public void initPairDiceViews() {
+        pairViews = new ImageView[30];
+
+        pairViews[0] = contentMainBinding.pairOne1;
+        pairViews[1] = contentMainBinding.pairOne2;
+        pairViews[2] = contentMainBinding.pairOne3;
+        pairViews[3] = contentMainBinding.pairTwo1;
+        pairViews[4] = contentMainBinding.pairTwo2;
+        pairViews[5] = contentMainBinding.pairTwo3;
+        pairViews[6] = contentMainBinding.pairThree1;
+        pairViews[7] = contentMainBinding.pairThree2;
+        pairViews[8] = contentMainBinding.pairThree3;
+        pairViews[9] = contentMainBinding.pairFour1;
+        pairViews[10] = contentMainBinding.pairFour2;
+        pairViews[11] = contentMainBinding.pairFour3;
+        pairViews[12] = contentMainBinding.pairFive1;
+        pairViews[13] = contentMainBinding.pairFive2;
+        pairViews[14] = contentMainBinding.pairFive3;
+        pairViews[15] = contentMainBinding.pairSix1;
+        pairViews[16] = contentMainBinding.pairSix2;
+        pairViews[17] = contentMainBinding.pairSix3;
+        pairViews[18] = contentMainBinding.pairSeven1;
+        pairViews[19] = contentMainBinding.pairSeven2;
+        pairViews[20] = contentMainBinding.pairSeven3;
+        pairViews[21] = contentMainBinding.pairEight1;
+        pairViews[22] = contentMainBinding.pairEight2;
+        pairViews[23] = contentMainBinding.pairEight3;
+        pairViews[24] = contentMainBinding.pairNine1;
+        pairViews[25] = contentMainBinding.pairNine2;
+        pairViews[26] = contentMainBinding.pairNine3;
+        pairViews[27] = contentMainBinding.pairTen1;
+        pairViews[28] = contentMainBinding.pairTen2;
+        pairViews[29] = contentMainBinding.pairTen3;
 
         clearDiceViews();
     }
 
     private void clearDiceViews() {
         for(ImageView imageView : imageViews) {
+            imageView.setImageResource(0);
+        }
+        for(ImageView imageView : pairViews) {
             imageView.setImageResource(0);
         }
     }
