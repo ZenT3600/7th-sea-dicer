@@ -125,7 +125,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 for (int i = 0; i < s.size(); i++) {
                     setPairView(s.get(i), i);
                 }
-                contentMainBinding.successTitle.setText("Success: " + s.size());
+                if (contentMainBinding.sum15checkbox.isChecked()) {
+                    int c = 0;
+                    for (int i = 0; i < s.size(); i++) {
+                        int subc = 0;
+                        for (int j = 0; j < s.get(i).size(); j++) {
+                            subc += s.get(i).get(j);
+                        }
+                        if (subc >= 15) {
+                            c += 2;
+                        } else {
+                            c++;
+                        }
+                    }
+                    contentMainBinding.successTitle.setText("Success: " + c);
+                } else {
+                    contentMainBinding.successTitle.setText("Success: " + s.size());
+                }
             }
         });
     }
@@ -266,15 +282,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         applySettings();
         dicerViewModel.rollDice(contentMainBinding.sum15checkbox.isChecked());
         Toast.makeText(this, "Long press a dice to reroll...", Toast.LENGTH_SHORT).show();
-    }
-
-    private static int countLines(String str){
-        String[] lines = str.split("\r\n|\r|\n");
-        int length = lines.length;
-        for (String l : lines) {
-            if (l.contains("(DOUBLE)")) length++;
-        }
-        return length;
     }
 
     private void hookDiceRerolling(final ImageView dice, final int n) {
