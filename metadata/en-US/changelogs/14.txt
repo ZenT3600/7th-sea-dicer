@@ -1,0 +1,4 @@
+* Added automatic success calculator based on difficulty cap
+* Addded ability to reroll single dice
+* Added ability to count sum of 15 as a double success
+* Rebranded and Changed UI

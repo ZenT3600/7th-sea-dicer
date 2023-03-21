@@ -1,1 +1,0 @@
-(SECUSO) Roll between one and ten six-sided dice.
