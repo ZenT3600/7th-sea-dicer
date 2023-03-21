@@ -1,0 +1,9 @@
+7th Sea Dicer is a fork of Privacy Friendly Dicer, which is a very simple dicing application. This fork is aimed at 7th sea players and it can be used to roll virtually any amount of dice. This can be done either by pressing a button or by shaking the smartphone.
+
+### Fork Additions
+
+* Automatic success calculator based on difficulty cap
+
+* Ability to reroll single dice
+
+* Possibility to count sum of 15 as a double success
