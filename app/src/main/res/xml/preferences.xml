@@ -5,7 +5,7 @@
             android:id="@+id/enableShaking"
             android:key="enable_shaking"
             android:title="@string/enable_shaking"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
         <SwitchPreference
             android:id="@+id/enableVibration"
             android:key="enable_vibration"
