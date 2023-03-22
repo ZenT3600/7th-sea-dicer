@@ -11,7 +11,7 @@ import it.matteoleggio.seventhseadicer.dicer.Dicer;
 public class DicerViewModel extends ViewModel {
 
     private final Dicer dicer = new Dicer();
-    private int faceNumber = 6;
+    private int faceNumber = 10;
     private int diceNumber = 5;
     private int difficultyNumber = 10;
 
