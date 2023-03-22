@@ -1,0 +1,2 @@
+* Great improvements in the algorithm for finding successful rolls
+* New defaults
