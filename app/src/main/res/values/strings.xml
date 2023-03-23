@@ -46,7 +46,7 @@
     <string name="okay">Okay</string>
 
     <string name="slide1_heading">Welcome!</string>
-    <string name="slide1_text">Choose the number of dice of adjusting the slider. Roll the dice by pressing the button or shaking the smartphone.</string>
+    <string name="slide1_text">Choose the number of dice by adjusting the slider. Roll the dice by pressing the button or shaking the smartphone.</string>
     <string name="action_tutorial">Tutorial</string>
     <string name="help_button">Help</string>
     <string name="choose_difficulty_heading">Difficulty Cap</string>
