@@ -1,6 +1,7 @@
 package it.matteoleggio.seventhseadicer.dicer;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.Type;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +26,17 @@ public class Dicer {
             }
         }
         return c;
+    }
+
+    private static int count(ArrayList<ArrayList<String>> s, boolean sum15, boolean ignored) {
+        ArrayList<ArrayList<Integer>> sInt = new ArrayList<ArrayList<Integer>>();
+        for (int i = 0; i < s.size(); i++) {
+            sInt.add(new ArrayList<Integer>());
+            for (int j = 0; j < s.get(i).size(); j++) {
+                sInt.get(i).add(Integer.parseInt(s.get(i).get(j).split("pos")[0]));
+            }
+        }
+        return count(sInt, sum15);
     }
 
     private static int sum(ArrayList<Integer> items) {
@@ -101,7 +113,6 @@ public class Dicer {
         // Try success with 2 dice
         ArrayList<String> roll2 = new ArrayList<String>();
         ArrayList<ArrayList<Integer>> dSuccess2 = new ArrayList<ArrayList<Integer>>();
-        ArrayList<ArrayList<Integer>> dSuccess2_15 = new ArrayList<ArrayList<Integer>>();
         for (int i = 0; i < roll.length; i++) {
             roll2.add(roll[i] + "pos" + i);
         }
@@ -111,7 +122,6 @@ public class Dicer {
                 ArrayList<Integer> p = new ArrayList<Integer>();
                 p.add(Integer.parseInt(d.split("pos")[0]));
                 dSuccess2.add(p);
-                dSuccess2_15.add(p);
                 roll2.remove(i);
                 i--;
             }
@@ -131,22 +141,12 @@ public class Dicer {
         ArrayList<ArrayList<Integer>> tmpDSuccess2 = new ArrayList<ArrayList<Integer>>();
         int max = 0;
         for (ArrayList<ArrayList<String>> macroPair : disjointedMacroPairs) {
-            if (macroPair.size() > max) {
-                max = macroPair.size();
+            if (count(macroPair, sum15, true) > max) {
+                max = count(macroPair, sum15, true);
                 tmpDSuccess2 = toInt(macroPair);
             }
         }
         dSuccess2.addAll(tmpDSuccess2);
-        ArrayList<ArrayList<ArrayList<String>>> disjointedMacroPairsSum15 = findDisjointedPair(possiblePairs, 15);
-        ArrayList<ArrayList<Integer>> tmpDSuccess2_15 = new ArrayList<ArrayList<Integer>>();
-        int max15 = 0;
-        for (ArrayList<ArrayList<String>> macroPair : disjointedMacroPairsSum15) {
-            if (macroPair.size() > max15) {
-                max15 = macroPair.size();
-                tmpDSuccess2_15 = toInt(macroPair);
-            }
-        }
-        dSuccess2_15.addAll(tmpDSuccess2_15);
 
         // Try success with 3 dice
         ArrayList<String> roll3 = new ArrayList<String>();
@@ -154,14 +154,12 @@ public class Dicer {
             roll3.add(Integer.toString(r));
         }
         ArrayList<ArrayList<Integer>> dSuccess3 = new ArrayList<ArrayList<Integer>>();
-        ArrayList<ArrayList<Integer>> dSuccess3_15 = new ArrayList<ArrayList<Integer>>();
         for (int i = 0; i < roll3.size(); i++) {
             String d = roll3.get(i);
             if (Integer.parseInt(d.split("pos")[0]) == 10) {
                 ArrayList<Integer> p = new ArrayList<Integer>();
                 p.add(Integer.parseInt(d.split("pos")[0]));
                 dSuccess3.add(p);
-                dSuccess3_15.add(p);
                 roll3.remove(i);
                 i--;
             }
@@ -188,41 +186,23 @@ public class Dicer {
         ArrayList<ArrayList<Integer>> tmpDSuccess3= new ArrayList<ArrayList<Integer>>();
         int max3 = 0;
         for (ArrayList<ArrayList<String>> macroPair : disjointedMacroPairs3) {
-            if (macroPair.size() > max3) {
-                max3 = macroPair.size();
+            if (count(macroPair, sum15, true) > max3) {
+                max3 = count(macroPair, sum15, true);
                 tmpDSuccess3 = toInt(macroPair);
             }
         }
         dSuccess3.addAll(tmpDSuccess3);
-        ArrayList<ArrayList<ArrayList<String>>> disjointedMacroPairs3Sum15 = findDisjointedPair(possiblePairs3, 15);
-        ArrayList<ArrayList<Integer>> tmpDSuccess3_15= new ArrayList<ArrayList<Integer>>();
-        int max3_15 = 0;
-        for (ArrayList<ArrayList<String>> macroPair : disjointedMacroPairs3Sum15) {
-            if (macroPair.size() > max3_15) {
-                max3_15 = macroPair.size();
-                tmpDSuccess3_15 = toInt(macroPair);
-            }
-        }
-        dSuccess3_15.addAll(tmpDSuccess3_15);
 
         int cSuccess2 = count(dSuccess2, sum15);
         int cSuccess3 = count(dSuccess3, sum15);
-        int cSuccess2_15 = count(dSuccess2_15, sum15);
-        int cSuccess3_15 = count(dSuccess3_15, sum15);
         System.out.println(cSuccess2);
-        System.out.println(cSuccess2_15);
         System.out.println(cSuccess3);
-        System.out.println(cSuccess3_15);
 
-        if (cSuccess2 == 0 && cSuccess3 == 0 && cSuccess2_15 == 0 && cSuccess3_15 == 0) {
+        if (cSuccess2 == 0 && cSuccess3 == 0) {
             return new ArrayList<ArrayList<Integer>>();
         }
-        if (cSuccess2 >= cSuccess3 && cSuccess2 >= cSuccess3_15 && cSuccess2 >= cSuccess2_15) {
+        if (cSuccess2 >= cSuccess3) {
             return dSuccess2;
-        } else if ((cSuccess2_15 >= cSuccess3 && cSuccess2_15 >= cSuccess3_15 && cSuccess2_15 >= cSuccess2) && sum15) {
-            return dSuccess2_15;
-        } else if ((cSuccess3_15 >= cSuccess2 && cSuccess3_15 >= cSuccess3 && cSuccess3_15 >= cSuccess2_15) && sum15) {
-            return dSuccess3_15;
         } else {
             return dSuccess3;
         }
