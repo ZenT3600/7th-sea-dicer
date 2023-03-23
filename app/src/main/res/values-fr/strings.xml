@@ -37,8 +37,5 @@
     <string name="help_permissions_description">Dicer utilise la permission de vibration pour vibrer après l\'affichage d\'un nouveau résultat. Si la permission n\'est pas accepté, l\'appareil ne vibra pas.</string>
 
     <!-- WelcomeDialog-->
-    <string name="welcome_title">Bienvenue</string>
-    <string name="welcome_description">Choisissez le nombre de dés en ajustant le curseur. Jetez les dés en appuyant sur le bouton ou en secouant le téléphone.</string>
-    <string name="confirm_button">OK</string>
     <string name="help_button">Voir l\'aide</string>
 </resources>
