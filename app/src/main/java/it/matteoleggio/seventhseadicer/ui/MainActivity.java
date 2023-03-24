@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 for (int i = 0; i < pair.size(); i++) {
                     if(dicerViewModel.getFaceNumber() == 2) {
                         pairViews[offset * 3 + i].setImageResource(getCoinDrawable(pair.get(i)));
-                    } if (dicerViewModel.getFaceNumber() <= 6) {
+                    } else if (dicerViewModel.getFaceNumber() <= 6) {
                         pairViews[offset * 3 + i].setImageResource(getDicerDrawable(pair.get(i)));
                     } else {
                         pairViews[offset * 3 + i].setImageBitmap(createBitmapForNumber(pair.get(i)));
@@ -348,9 +348,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public @DrawableRes int getCoinDrawable(int number) {
         switch (number) {
             case 1:
-                return R.drawable.c2;
-            case 2:
                 return R.drawable.c1;
+            case 2:
+                return R.drawable.c2;
             default:
                 break;
         }
