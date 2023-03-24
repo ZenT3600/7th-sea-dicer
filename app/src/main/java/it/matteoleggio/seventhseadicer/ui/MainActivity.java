@@ -10,7 +10,6 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -38,10 +37,7 @@ import it.matteoleggio.seventhseadicer.databinding.ContentMainBinding;
 import it.matteoleggio.seventhseadicer.sensors.ShakeListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Locale;
-
-import javax.xml.datatype.Duration;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -113,7 +109,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dicerViewModel.getSuccessLiveData().observe(this, new Observer<ArrayList<ArrayList<Integer>>>() {
             public void setPairView(ArrayList<Integer> pair, int offset) {
                 for (int i = 0; i < pair.size(); i++) {
-                    if (dicerViewModel.getFaceNumber() <= 6) {
+                    if(dicerViewModel.getFaceNumber() == 2) {
+                        pairViews[offset * 3 + i].setImageResource(getCoinDrawable(pair.get(i)));
+                    } if (dicerViewModel.getFaceNumber() <= 6) {
                         pairViews[offset * 3 + i].setImageResource(getDicerDrawable(pair.get(i)));
                     } else {
                         pairViews[offset * 3 + i].setImageBitmap(createBitmapForNumber(pair.get(i)));
@@ -188,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         contentMainBinding.seekBarFace.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                dicerViewModel.setFaceNumber(progress + 1);
+                dicerViewModel.setFaceNumber(progress + 2);
             }
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
@@ -316,7 +314,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void showDice(int[] dice) {
         clearDiceViews();
         for (int i = 0; i < dice.length; i++) {
-            if(dicerViewModel.getFaceNumber() <= 6) {
+            if(dicerViewModel.getFaceNumber() == 2) {
+                imageViews[i].setImageResource(getCoinDrawable(dice[i]));
+            } else if(dicerViewModel.getFaceNumber() <= 6) {
                 imageViews[i].setImageResource(getDicerDrawable(dice[i]));
             } else {
                 imageViews[i].setImageBitmap(createBitmapForNumber(dice[i]));
@@ -339,6 +339,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return R.drawable.d5;
             case 6:
                 return R.drawable.d6;
+            default:
+                break;
+        }
+        return -1;
+    }
+
+    public @DrawableRes int getCoinDrawable(int number) {
+        switch (number) {
+            case 1:
+                return R.drawable.c2;
+            case 2:
+                return R.drawable.c1;
             default:
                 break;
         }
